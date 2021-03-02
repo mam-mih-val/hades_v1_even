@@ -7,8 +7,6 @@
 
 #include <AnalysisTree/TaskManager.hpp>
 
-#include <cuts.h>
-
 #include "sim_acceptance.h"
 
 

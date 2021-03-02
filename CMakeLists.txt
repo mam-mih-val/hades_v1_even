@@ -4,7 +4,6 @@ project(flow)
 set(CMAKE_CXX_STANDARD 17)
 list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
 list(APPEND CMAKE_PREFIX_PATH $ENV{AnalysisTree_HOME})
-list(APPEND CMAKE_PREFIX_PATH $ENV{HadesUtils_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${AnalysisTree_HOME})
 
 find_package(ROOT REQUIRED COMPONENTS RIO Tree)
@@ -19,7 +18,6 @@ include_directories(
         ${CMAKE_SOURCE_DIR}/src
         ${ROOT_INCLUDE_DIRS}
         ${AnalysisTree_INCLUDE_DIR}
-        $ENV{HadesUtils_DIR}/include
 )
 
 link_directories(

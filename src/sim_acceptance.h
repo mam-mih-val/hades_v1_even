@@ -14,7 +14,6 @@
 #include <AnalysisTree/Detector.hpp>
 
 #include <TH3F.h>
-#include <centrality.h>
 
 namespace AnalysisTree {
 class SimAcceptance : public FillTask {
