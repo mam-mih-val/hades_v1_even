@@ -26,7 +26,7 @@ void SimAcceptance::Init(std::map<std::string, void *> &branch_map) {
   std::cout << "SimAcceptance::Init(): RETURN" << std::endl;
 }
 void SimAcceptance::Exec() {
-  std::cout << "SimAcceptance::Exec(): START" << std::endl;
+//  std::cout << "SimAcceptance::Exec(): START" << std::endl;
   auto centrality = reco_header_->GetField<float>(
       config_->GetBranchConfig("event_header").GetFieldId("selected_tof_rpc_hits_centrality") );
   if( centrality > 40 )
@@ -53,7 +53,7 @@ void SimAcceptance::Exec() {
     v1_even_->Fill( y, pt, 0.5*cos(delta_phi) );
     v1_even_->Fill( -y, pt, 0.5*cos(delta_phi) );
   }
-  std::cout << "SimAcceptance::Exec(): RETURN" << std::endl;
+//  std::cout << "SimAcceptance::Exec(): RETURN" << std::endl;
 }
 void SimAcceptance::Finish() {
   std::cout << "SimAcceptance::Finish(): START" << std::endl;
