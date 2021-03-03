@@ -6,8 +6,8 @@ output_dir=$2
 ownroot=/lustre/nyx/hades/user/mmamaev/install/root-6.20.04/bin/thisroot.sh
 
 current_dir=$(pwd)
-partition=main
-time=8:00:00
+partition=debug
+time=0:10:00
 build_dir=/lustre/nyx/hades/user/mmamaev/hades_v1_even/build
 
 lists_dir=${output_dir}/lists/
@@ -17,7 +17,7 @@ mkdir -p $output_dir
 mkdir -p $log_dir
 mkdir -p $lists_dir
 
-split -l 5 -d -a 3 --additional-suffix=.list "$file_list" $lists_dir
+split -l 1 -d -a 3 --additional-suffix=.list "$file_list" $lists_dir
 
 n_runs=$(ls $lists_dir/*.list | wc -l)
 

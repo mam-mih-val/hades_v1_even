@@ -7,6 +7,7 @@
 
 namespace AnalysisTree {
 void SimAcceptance::Init(std::map<std::string, void *> &branch_map) {
+  std::cout << "SimAcceptance::Init(): START" << std::endl;
   sim_header_ = static_cast<EventHeader *>(branch_map.at("sim_header"));
   reco_header_ = static_cast<EventHeader *>(branch_map.at("event_header"));
   sim_tracks_ = static_cast<Particles *>(branch_map.at("sim_tracks"));
@@ -22,8 +23,10 @@ void SimAcceptance::Init(std::map<std::string, void *> &branch_map) {
   v1_reflected_ = new TProfile2D( "v1_(-y)_10_40pc", ";y_{cm};p_{T}",
                                   15, y_axis,
                                   10, pt_axis );
+  std::cout << "SimAcceptance::Init(): RETURN" << std::endl;
 }
 void SimAcceptance::Exec() {
+  std::cout << "SimAcceptance::Exec(): START" << std::endl;
   auto centrality = reco_header_->GetField<float>(
       config_->GetBranchConfig("event_header").GetFieldId("selected_tof_rpc_hits_centrality") );
   if( centrality > 40 )
@@ -50,10 +53,13 @@ void SimAcceptance::Exec() {
     v1_even_->Fill( y, pt, 0.5*cos(delta_phi) );
     v1_even_->Fill( -y, pt, 0.5*cos(delta_phi) );
   }
+  std::cout << "SimAcceptance::Exec(): RETURN" << std::endl;
 }
 void SimAcceptance::Finish() {
+  std::cout << "SimAcceptance::Finish(): START" << std::endl;
   v1_straight_->Write();
   v1_reflected_->Write();
   v1_even_->Write();
+  std::cout << "SimAcceptance::Finish(): Files are written" << std::endl;
 }
 } // namespace AnalysisTree
